@@ -190,7 +190,7 @@ v2.6.1  (2026-08-19)
         `tell application id`, and it could hold no defaults domain.
 
 
-v2.6.2  (2026-09-13)  — current
+v2.6.2  (2026-09-13)
     Documentation release; no change to the effect. Adds a HOW TO USE IT
     section — numbered steps from selecting the layer, through every dialog
     field and its units, to what the result group contains — and fills in a
@@ -201,6 +201,19 @@ v2.6.2  (2026-09-13)  — current
     Also corrects the version the app announces: every dialog title is built
     from `scriptVersion`, which still read 2.4.0 while the bundle had moved on
     to 2.6.1.
+
+
+v2.7.0  (2026-09-13)  — current
+    Checks for a newer release. The app asks GitHub for the newest published
+    tag and says so in the settings prompt when this build is behind; nothing
+    is shown when it is current. It only ever REPORTS — it never downloads or
+    replaces itself, because a running bundle cannot safely overwrite its own
+    files.
+
+    The check runs once a day at most and is capped at three seconds, so a slow
+    or absent network barely shows. The tag and the day it was fetched are kept
+    in the defaults file. The version is compared as integers, so 3.10.0 counts
+    as newer than 3.9.0 rather than older.
 
 
 -----------------------------------------------------------------------------
