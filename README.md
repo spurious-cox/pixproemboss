@@ -1,4 +1,4 @@
-# PixProEmboss
+# PixProEmboss 2.7.3
 
 Embosses the selected Pixelmator Pro layer — text, a shape, or a group of
 shaped text — so it reads as raised off the canvas, with a lit edge on one
@@ -12,9 +12,6 @@ or install it with Homebrew:
 ```
 brew install --cask spurious-cox/tap/pixproemboss
 ```
-
-*2.7.3 fixes a first run that could hang with nothing on screen, and makes the version in its dialogs match the app again.*
-
 Requires Pixelmator Pro. Both the 3.x build and the Creator Studio build work;
 the app binds to whichever one is in front or has a document open.
 
