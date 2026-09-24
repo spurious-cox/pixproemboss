@@ -1,4 +1,4 @@
-# PixProEmboss 2.7.3
+# PixProEmboss 2.7.4
 
 Embosses the selected Pixelmator Pro layer — text, a shape, or a group of
 shaped text — so it reads as raised off the canvas, with a lit edge on one

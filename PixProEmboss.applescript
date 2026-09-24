@@ -37,7 +37,7 @@
 -- drag it out to the top level first; you can move the result back
 -- wherever you want afterward.
 
-property scriptVersion : "2.7.3"
+property scriptVersion : "2.7.4"
 
 property kPixIDs : {"com.apple.pixelmator", "com.pixelmatorteam.pixelmator.x"}
 
