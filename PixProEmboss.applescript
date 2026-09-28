@@ -1,5 +1,5 @@
 -- PixProEmboss.applescript
--- Version 2.7.5 (2026-09-28)
+-- Version 2.7.6 (2026-09-28)
 -- Copyright (c) 2026 Tim McCoy. All rights reserved.
 -- Developed with assistance from Claude (Anthropic).
 --
@@ -37,7 +37,7 @@
 -- drag it out to the top level first; you can move the result back
 -- wherever you want afterward.
 
-property scriptVersion : "2.7.5"
+property scriptVersion : "2.7.6"
 
 property kPixIDs : {"com.apple.pixelmator", "com.pixelmatorteam.pixelmator.x"}
 
