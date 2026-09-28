@@ -1,4 +1,4 @@
-# PixProEmboss 2.7.4
+# PixProEmboss 2.7.5
 
 Embosses the selected Pixelmator Pro layer — text, a shape, or a group of
 shaped text — so it reads as raised off the canvas, with a lit edge on one
@@ -28,6 +28,8 @@ the app binds to whichever one is in front or has a document open.
    | Depth | shadow offset distance; larger = more raised |
    | Blur | softness of the shadow edge; larger = softer |
 
+   ![Every light angle and its opposite dark angle](PixProEmboss-angles.png)
+
    The values are saved and offered again next run.
 
 ## What you get
@@ -53,6 +55,10 @@ deliberately dropped as not worth the complexity.
 # no build script: compile the applet and re-sign
 osacompile -o /tmp/PixProEmboss.scpt PixProEmboss.applescript
 ```
+
+The Read Me button opens `PixProEmboss-README.rtfd` from the app's Resources: the
+text Read Me with `PixProEmboss-angles.png` in place, built by
+`~/My_Applications/_signing/pixpro_readme_rtfd.py PixProEmboss-README.txt <out.rtfd> PixProEmboss-angles.png`.
 
 Signing uses a Developer ID certificate selected by SHA-1 hash and timestamped,
 which is what keeps macOS's Automation grant alive across rebuilds.

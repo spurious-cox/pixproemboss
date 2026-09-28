@@ -1,5 +1,5 @@
 -- PixProEmboss.applescript
--- Version 2.4.0 (2026-08-10)
+-- Version 2.7.5 (2026-09-28)
 -- Copyright (c) 2026 Tim McCoy. All rights reserved.
 -- Developed with assistance from Claude (Anthropic).
 --
@@ -37,7 +37,7 @@
 -- drag it out to the top level first; you can move the result back
 -- wherever you want afterward.
 
-property scriptVersion : "2.7.4"
+property scriptVersion : "2.7.5"
 
 property kPixIDs : {"com.apple.pixelmator", "com.pixelmatorteam.pixelmator.x"}
 
@@ -135,8 +135,10 @@ property pixApp : ""
 -- ============================================================
 on showReadMe()
 	try
-		set rmRef to (path to resource "PixProEmboss-README.txt")
-		do shell script "open -e " & quoted form of (POSIX path of rmRef)
+		-- The RTFD is the text README with the angle diagram in place; TextEdit
+		-- shows both.
+		set rmRef to (path to resource "PixProEmboss-README.rtfd")
+		do shell script "open -a TextEdit " & quoted form of (POSIX path of rmRef)
 	on error
 		tell me to activate
 		display dialog "The Read Me is missing from the app bundle." buttons {"OK"} default button "OK"

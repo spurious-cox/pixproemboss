@@ -29,6 +29,7 @@ Shortcut: Ctrl-Opt-Cmd-E inside Pixelmator Pro, via the "Emboss Layer"
            Angle   0-359, the direction the light comes from
            Depth   shadow offset distance; larger = more raised
            Blur    softness of the shadow edge; larger = softer
+       Every direction is drawn in PixProEmboss-angles.png.
        The values are saved and offered again next run. Read Me opens
        this file.
 
