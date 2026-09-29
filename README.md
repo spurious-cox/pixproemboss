@@ -1,4 +1,4 @@
-# PixProEmboss 2.7.6
+# PixProEmboss 2.7.7
 
 Embosses the selected Pixelmator Pro layer — text, a shape, or a group of
 shaped text — so it reads as raised off the canvas, with a lit edge on one
@@ -19,7 +19,7 @@ the app binds to whichever one is in front or has a document open.
 
 1. In Pixelmator Pro, select the layer to emboss. It has to be at the **top
    level** of the Layers list; select several and each is embossed in turn.
-2. Run PixProEmboss, or press **⌃⌥⌘E** with Pixelmator Pro in front.
+2. Run PixProEmboss.
 3. Answer the one prompt — `angle / depth / blur`, for example `135 / 10 / 5`:
 
    | Field | Means |
@@ -57,13 +57,10 @@ osacompile -o /tmp/PixProEmboss.scpt PixProEmboss.applescript
 ```
 
 The Read Me button opens `PixProEmboss-README.rtfd` from the app's Resources: the
-text Read Me with `PixProEmboss-angles.png` in place, built by
-`~/My_Applications/_signing/pixpro_readme_rtfd.py PixProEmboss-README.txt <out.rtfd> PixProEmboss-angles.png`.
+text Read Me with `PixProEmboss-angles.png` in place of the line that names it.
 
-Signing uses a Developer ID certificate selected by SHA-1 hash and timestamped,
-which is what keeps macOS's Automation grant alive across rebuilds.
-`~/My_Applications/_signing/pixpro_release.sh all <App>` signs and notarizes;
-`pixpro_publish.sh <App>` wraps it in the DMG and updates the cask.
+The app is signed with a timestamped Developer ID certificate, which keeps
+macOS's Automation grant alive across rebuilds, then notarized and stapled.
 
 ## Problems or suggestions
 

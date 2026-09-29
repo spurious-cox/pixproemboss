@@ -6,11 +6,9 @@ PixProEmboss is a macOS AppleScript applet that embosses the selected
 top-level layer(s) in Pixelmator Pro — plain text, single shapes, or
 groups / shaped text — giving them a raised, chiselled appearance.
 
-Applet:   /Applications/PixProEmboss.app   (also the ⌃⌥⌘E shortcut target)
-Source:   ~/My_Applications/PixProEmboss/PixProEmboss.applescript
+Applet:   /Applications/PixProEmboss.app
+Source:   PixProEmboss.applescript in this repository
 Defaults: ~/.pixproemboss_defaults.plist
-Shortcut: Ctrl-Opt-Cmd-E inside Pixelmator Pro, via the "Emboss Layer"
-          Quick Action (~/Library/Services/Emboss Layer.workflow)
 
 
 -----------------------------------------------------------------------------
@@ -21,8 +19,7 @@ Shortcut: Ctrl-Opt-Cmd-E inside Pixelmator Pro, via the "Emboss Layer"
        emboss. It has to be at the TOP LEVEL of the Layers list; select
        several and each one is embossed in turn.
 
-    2. Run PixProEmboss — double-click /Applications/PixProEmboss.app, or
-       press Control-Option-Command-E with Pixelmator Pro in front.
+    2. Run PixProEmboss — double-click /Applications/PixProEmboss.app.
 
     3. Answer the one dialog: angle / depth / blur, for example
        135 / 10 / 5.
@@ -158,7 +155,7 @@ onto an opaque gray square and embedded, app ad-hoc signed.
 v2.5.0  (2026-08-10)
     Read Me button. This README is now copied into the app bundle's own
     Contents/Resources at build time and opened via `path to resource`, so it
-    travels inside the app — nothing depends on ~/My_Applications or any other
+    travels inside the app — nothing depends on any
     external path. The button sits on the angle / depth / blur settings prompt and returns you
     to the prompt after the Read Me opens.
 
