@@ -37,7 +37,7 @@
 -- drag it out to the top level first; you can move the result back
 -- wherever you want afterward.
 
-property scriptVersion : "2.7.7"
+property scriptVersion : "2.7.8"
 
 property kPixIDs : {"com.apple.pixelmator", "com.pixelmatorteam.pixelmator.x"}
 
@@ -191,7 +191,7 @@ on pixTarget()
 		-- orders the candidates, it does not find them.
 		with timeout of 5 seconds
 			tell application "System Events"
-				set fpid to unix id of (first application process whose frontmost is true)
+				set fpid to my topPixelmatorPID(unix id of (first application process whose frontmost is true))
 			end tell
 		end timeout
 		set frontPath to do shell script "/bin/ps -p " & fpid & " -o args= | /usr/bin/sed 's|/Contents/MacOS/.*||'"
@@ -456,3 +456,28 @@ repeat with job in embossJobs
 end repeat
 
 display notification "Finished! " & convCount & " conversion(s) embossed." with title ("PixProEmboss v" & scriptVersion)
+
+
+-- ============================================================
+-- TOPMOST PIXELMATOR (v2.7.8, 2026-10-10)
+-- ============================================================
+-- Which Pixelmator Pro the person is looking at. "Frontmost application" is
+-- no help when this applet was started from Stache, Flache or the Dock,
+-- because the applet itself is then frontmost. The window list is ordered
+-- front to back, so the first Pixelmator Pro window in it belongs to the build
+-- on top. Visible windows are tried first, then all windows (a build on
+-- another Space). Reading owner pid, name and size needs no Screen Recording
+-- permission. Falls back to `fallback` when nothing is found.
+on topPixelmatorPID(fallback)
+	set js to "ObjC.import(\"CoreGraphics\");" & ¬
+		"function top(o){var l=ObjC.deepUnwrap(ObjC.castRefToObject($.CGWindowListCopyWindowInfo(o,0)));" & ¬
+		"for(var i=0;i<l.length;i++){var w=l[i];" & ¬
+		"if(w.kCGWindowOwnerName==\"Pixelmator Pro\"&&w.kCGWindowLayer==0&&w.kCGWindowBounds.Height>100)return w.kCGWindowOwnerPID;}" & ¬
+		"return \"\";}" & ¬
+		"var r=top(17);if(r===\"\")r=top(16);r"
+	try
+		set r to do shell script "/usr/bin/osascript -l JavaScript -e " & quoted form of js
+		if r is not "" then return r as integer
+	end try
+	return fallback
+end topPixelmatorPID
